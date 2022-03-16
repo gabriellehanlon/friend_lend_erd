@@ -5,6 +5,8 @@ class LetterSize < ApplicationRecord
 
   # Validations
 
+  validates :size, :presence => true
+
   # Scopes
 
   def to_s
