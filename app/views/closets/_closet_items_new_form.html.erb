@@ -22,7 +22,7 @@
     <%= f.label :item_type_id %>
 
     <!-- Input for item_type_id start -->
-    <%= f.text_field :item_type_id, class: "form-control" %>
+    <%= f.collection_select :item_type_id, ItemType.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for item_type_id end -->
   </div>
   <!-- Label and input for item_type_id end -->

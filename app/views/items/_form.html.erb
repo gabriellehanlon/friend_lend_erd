@@ -68,7 +68,7 @@
 
     <%= f.label :item_type_id %>
     <!-- Input for item_type_id start -->
-    <%= f.number_field :item_type_id, class: item_type_class, placeholder: "Enter item type" %>
+    <%= f.collection_select :item_type_id, ItemType.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for item_type_id end -->
     <% if item_type_was_invalid %>
       <% item.errors.full_messages_for(:item_type).each do |message| %>
