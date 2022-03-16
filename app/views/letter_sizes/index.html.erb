@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @letter_sizes, partial: "list_item", as: :letter_size %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @letter_sizes, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

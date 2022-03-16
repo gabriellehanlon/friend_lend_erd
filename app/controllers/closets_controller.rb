@@ -5,7 +5,7 @@ class ClosetsController < ApplicationController
 
   # GET /closets
   def index
-    @closets = Closet.all
+    @closets = Closet.page(params[:page]).per(10)
   end
 
   # GET /closets/1

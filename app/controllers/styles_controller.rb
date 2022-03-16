@@ -3,7 +3,7 @@ class StylesController < ApplicationController
 
   # GET /styles
   def index
-    @styles = Style.all
+    @styles = Style.page(params[:page]).per(10)
   end
 
   # GET /styles/1

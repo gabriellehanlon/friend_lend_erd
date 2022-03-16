@@ -3,7 +3,7 @@ class NumberSizesController < ApplicationController
 
   # GET /number_sizes
   def index
-    @number_sizes = NumberSize.all
+    @number_sizes = NumberSize.page(params[:page]).per(10)
   end
 
   # GET /number_sizes/1

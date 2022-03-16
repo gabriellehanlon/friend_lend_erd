@@ -3,7 +3,7 @@ class LetterSizesController < ApplicationController
 
   # GET /letter_sizes
   def index
-    @letter_sizes = LetterSize.all
+    @letter_sizes = LetterSize.page(params[:page]).per(10)
   end
 
   # GET /letter_sizes/1
