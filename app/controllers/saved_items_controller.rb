@@ -5,7 +5,7 @@ class SavedItemsController < ApplicationController
 
   # GET /saved_items
   def index
-    @saved_items = SavedItem.all
+    @saved_items = current_user.saved_items.page(params[:page]).per(10)
   end
 
   # GET /saved_items/1
