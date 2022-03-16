@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  belongs_to :number_size,
+             :required => false
+
   belongs_to :letter_size,
              :required => false
 
