@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "preferences#index"
   resources :saved_items
   resources :lend_transactions
   resources :number_sizes
