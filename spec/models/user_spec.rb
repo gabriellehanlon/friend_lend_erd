@@ -18,6 +18,8 @@ RSpec.describe User, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:styles) }
+
     it { should have_many(:items) }
 
     it { should have_many(:letter_sizes) }

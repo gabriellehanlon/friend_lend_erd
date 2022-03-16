@@ -9,6 +9,10 @@ class Style < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :preferences,
+             :source => :user
+
   # Validations
 
   validates :style_name, :uniqueness => { :message => "This style type already exists" }
