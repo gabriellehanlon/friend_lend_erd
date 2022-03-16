@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :number_sizes
   resources :letter_sizes
   resources :item_types
   resources :items
