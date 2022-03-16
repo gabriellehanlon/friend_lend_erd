@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :number_sizes,
+             :through => :preferences,
+             :source => :number_size
+
   # Validations
 
   # Scopes
