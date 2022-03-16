@@ -42,7 +42,7 @@
 
     <%= f.label :number_size_id %>
     <!-- Input for number_size_id start -->
-    <%= f.number_field :number_size_id, class: number_size_class, placeholder: "Enter number size" %>
+    <%= f.collection_select :number_size_id, NumberSize.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for number_size_id end -->
     <% if number_size_was_invalid %>
       <% preference.errors.full_messages_for(:number_size).each do |message| %>
