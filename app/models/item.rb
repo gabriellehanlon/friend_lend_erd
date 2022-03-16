@@ -5,6 +5,8 @@ class Item < ApplicationRecord
 
   # Validations
 
+  validates :item_type_id, :presence => { :message => "Please select an item type" }
+
   validates :photos, :presence => true
 
   # Scopes
