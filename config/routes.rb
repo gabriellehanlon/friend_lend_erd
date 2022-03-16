@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :closets
   resources :styles
   resources :preferences
   devise_for :users
