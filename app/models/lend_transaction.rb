@@ -1,6 +1,10 @@
 class LendTransaction < ApplicationRecord
   # Direct associations
 
+  belongs_to :user_lending,
+             :class_name => "User",
+             :counter_cache => :items_borrowed_count
+
   belongs_to :lender,
              :class_name => "User"
 

@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:items_borrowed) }
+
     it { should have_many(:lend_transactions) }
 
     it { should have_many(:preferences) }

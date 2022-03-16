@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :items_borrowed,
+             :class_name => "LendTransaction",
+             :foreign_key => "user_lending_id"
+
   has_many   :lend_transactions,
              :foreign_key => "lender_id"
 
