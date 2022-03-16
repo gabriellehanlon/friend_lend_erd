@@ -1,6 +1,8 @@
 class Preference < ApplicationRecord
   # Direct associations
 
+  belongs_to :letter_size
+
   belongs_to :style,
              :required => false,
              :counter_cache => true

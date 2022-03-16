@@ -1,6 +1,9 @@
 class LetterSize < ApplicationRecord
   # Direct associations
 
+  has_many   :preferences,
+             :dependent => :nullify
+
   # Indirect associations
 
   # Validations
