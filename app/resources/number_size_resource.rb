@@ -6,6 +6,8 @@ class NumberSizeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :preferences
+
   # Indirect associations
 
 end

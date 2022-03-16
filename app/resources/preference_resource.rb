@@ -9,6 +9,8 @@ class PreferenceResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :number_size
+
   belongs_to :letter_size
 
   belongs_to :style
