@@ -15,7 +15,7 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <% if current_user == lend_transaction.lender %>
+        <% if current_user == lend_transaction.user_lending %>
           <%= link_to lend_transaction, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>

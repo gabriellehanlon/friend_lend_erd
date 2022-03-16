@@ -1,4 +1,6 @@
 class LendTransactionsController < ApplicationController
+  before_action :current_user_must_be_lend_transaction_user_lending, only: [:edit, :update, :destroy] 
+
   before_action :current_user_must_be_lend_transaction_lender, only: [:edit, :update, :destroy] 
 
   before_action :set_lend_transaction, only: [:show, :edit, :update, :destroy]
@@ -59,6 +61,14 @@ class LendTransactionsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_lend_transaction_user_lending
+    set_lend_transaction
+    unless current_user == @lend_transaction.user_lending
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
 
   def current_user_must_be_lend_transaction_lender
     set_lend_transaction
