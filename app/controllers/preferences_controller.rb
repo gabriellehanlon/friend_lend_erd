@@ -5,7 +5,7 @@ class PreferencesController < ApplicationController
 
   # GET /preferences
   def index
-    @preferences = Preference.all
+    @preferences = current_user.preferences.page(params[:page]).per(10)
   end
 
   # GET /preferences/1
