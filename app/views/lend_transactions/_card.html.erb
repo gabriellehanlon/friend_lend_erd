@@ -44,16 +44,20 @@
 
       <!-- Edit link lend_transaction start -->
       <div class="col">
-        <%= link_to edit_lend_transaction_url(lend_transaction), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @lend_transaction.lender %>
+          <%= link_to edit_lend_transaction_url(lend_transaction), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link lend_transaction end -->
 
       <!-- Delete link lend_transaction start -->
       <div class="col">
-        <%= link_to lend_transaction, method: :delete, data: { confirm: "Do you really want to delete this lend_transaction?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @lend_transaction.lender %>
+          <%= link_to lend_transaction, method: :delete, data: { confirm: "Do you really want to delete this lend_transaction?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link lend_transaction end -->

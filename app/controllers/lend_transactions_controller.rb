@@ -1,4 +1,6 @@
 class LendTransactionsController < ApplicationController
+  before_action :current_user_must_be_lend_transaction_lender, only: [:edit, :update, :destroy] 
+
   before_action :set_lend_transaction, only: [:show, :edit, :update, :destroy]
 
   # GET /lend_transactions
@@ -57,6 +59,14 @@ class LendTransactionsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_lend_transaction_lender
+    set_lend_transaction
+    unless current_user == @lend_transaction.lender
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_lend_transaction
       @lend_transaction = LendTransaction.find(params[:id])
