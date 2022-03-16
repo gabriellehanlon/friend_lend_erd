@@ -7,30 +7,9 @@
   <!-- Input for "lender_id" end -->
   <!-- Label and input for lender_id end -->
   <!-- Label and input for user_lending_id start -->
-  <div class="form-group">
-    <% user_lending_class = "form-control" %>
-    <% user_lending_was_invalid = lend_transaction.errors.include?(:user_lending) %>
-
-    <% if was_validated %>
-      <% if user_lending_was_invalid %>
-        <% user_lending_class << " is-invalid" %>
-      <% else %>
-        <% user_lending_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :user_lending_id %>
-    <!-- Input for user_lending_id start -->
-    <%= f.collection_select :user_lending_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_lending_id end -->
-    <% if user_lending_was_invalid %>
-      <% lend_transaction.errors.full_messages_for(:user_lending).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "user_lending_id" start -->
+  <%= f.hidden_field :user_lending_id, value: current_user.id %>
+  <!-- Input for "user_lending_id" end -->
   <!-- Label and input for user_lending_id end -->
   <!-- Label and input for pickup_date_time start -->
   <div class="form-group">

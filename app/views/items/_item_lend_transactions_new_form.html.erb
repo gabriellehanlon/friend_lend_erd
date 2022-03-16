@@ -9,13 +9,9 @@
   <!-- Label and input for lender_id end -->
 
   <!-- Label and input for user_lending_id start -->
-  <div class="form-group">
-    <%= f.label :user_lending_id %>
-
-    <!-- Input for user_lending_id start -->
-    <%= f.collection_select :user_lending_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_lending_id end -->
-  </div>
+  <!-- Input for "user_lending_id" start -->
+  <%= f.hidden_field :user_lending_id, value: current_user.id %>
+  <!-- Input for "user_lending_id" end -->
   <!-- Label and input for user_lending_id end -->
 
   <!-- Label and input for pickup_date_time start -->
