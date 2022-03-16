@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Lend Transaction #<%= lend_transaction.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Lender</dt>
+      <!-- Display lender_id start -->
+      <dd><%= lend_transaction.lender_id %></dd>
+      <!-- Display lender_id end -->
+
+      <dt>User lending</dt>
+      <!-- Display user_lending_id start -->
+      <dd><%= lend_transaction.user_lending_id %></dd>
+      <!-- Display user_lending_id end -->
+
+      <dt>Pickup date time</dt>
+      <!-- Display pickup_date_time start -->
+      <dd><%= lend_transaction.pickup_date_time %></dd>
+      <!-- Display pickup_date_time end -->
+
+      <dt>Rental period</dt>
+      <!-- Display rental_period start -->
+      <dd><%= lend_transaction.rental_period %></dd>
+      <!-- Display rental_period end -->
+
+      <dt>Item</dt>
+      <!-- Display item_id start -->
+      <dd><%= lend_transaction.item_id %></dd>
+      <!-- Display item_id end -->
+
+      <dt>Chat history</dt>
+      <!-- Display chat_history start -->
+      <dd><%= lend_transaction.chat_history %></dd>
+      <!-- Display chat_history end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back lend_transaction, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link lend_transaction start -->
+      <div class="col">
+        <%= link_to edit_lend_transaction_url(lend_transaction), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link lend_transaction end -->
+
+      <!-- Delete link lend_transaction start -->
+      <div class="col">
+        <%= link_to lend_transaction, method: :delete, data: { confirm: "Do you really want to delete this lend_transaction?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link lend_transaction end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(lend_transaction.updated_at) %> ago
+  </div>
+</div>
