@@ -1,0 +1,31 @@
+<% was_validated = style.errors.any? %>
+
+<%= form_with(model: style, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for style_name start -->
+  <div class="form-group">
+    <% style_name_class = "form-control" %>
+    <% style_name_was_invalid = style.errors.include?(:style_name) %>
+
+    <% if was_validated %>
+      <% if style_name_was_invalid %>
+        <% style_name_class << " is-invalid" %>
+      <% else %>
+        <% style_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :style_name %>
+    <!-- Input for style_name start -->
+    <%= f.text_area :style_name, class: style_name_class, placeholder: "Enter style name" %>
+    <!-- Input for style_name end -->
+    <% if style_name_was_invalid %>
+      <% style.errors.full_messages_for(:style_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for style_name end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
