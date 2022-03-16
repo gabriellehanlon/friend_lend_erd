@@ -16,7 +16,7 @@
 
     <%= f.label :lender_id %>
     <!-- Input for lender_id start -->
-    <%= f.number_field :lender_id, class: lender_class, placeholder: "Enter lender" %>
+    <%= f.collection_select :lender_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for lender_id end -->
     <% if lender_was_invalid %>
       <% lend_transaction.errors.full_messages_for(:lender).each do |message| %>

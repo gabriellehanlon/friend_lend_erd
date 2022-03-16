@@ -7,7 +7,7 @@
     <%= f.label :lender_id %>
 
     <!-- Input for lender_id start -->
-    <%= f.text_field :lender_id, class: "form-control" %>
+    <%= f.collection_select :lender_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for lender_id end -->
   </div>
   <!-- Label and input for lender_id end -->
