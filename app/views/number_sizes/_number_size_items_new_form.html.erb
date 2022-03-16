@@ -36,7 +36,7 @@
     <%= f.label :style_id %>
 
     <!-- Input for style_id start -->
-    <%= f.text_field :style_id, class: "form-control" %>
+    <%= f.collection_select :style_id, Style.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for style_id end -->
   </div>
   <!-- Label and input for style_id end -->
