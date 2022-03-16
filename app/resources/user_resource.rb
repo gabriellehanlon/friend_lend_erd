@@ -24,6 +24,8 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :styles
+
   has_many :items do
     assign_each do |user, items|
       items.select do |i|
