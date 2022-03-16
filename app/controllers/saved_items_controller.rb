@@ -24,7 +24,12 @@ class SavedItemsController < ApplicationController
     @saved_item = SavedItem.new(saved_item_params)
 
     if @saved_item.save
-      redirect_to @saved_item, notice: 'Saved item was successfully created.'
+      message = 'SavedItem was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @saved_item, notice: message
+      end
     else
       render :new
     end

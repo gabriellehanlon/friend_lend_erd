@@ -24,7 +24,12 @@ class LendTransactionsController < ApplicationController
     @lend_transaction = LendTransaction.new(lend_transaction_params)
 
     if @lend_transaction.save
-      redirect_to @lend_transaction, notice: 'Lend transaction was successfully created.'
+      message = 'LendTransaction was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @lend_transaction, notice: message
+      end
     else
       render :new
     end

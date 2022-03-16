@@ -8,6 +8,7 @@ class ClosetsController < ApplicationController
 
   # GET /closets/1
   def show
+    @item = Item.new
   end
 
   # GET /closets/new
@@ -24,7 +25,12 @@ class ClosetsController < ApplicationController
     @closet = Closet.new(closet_params)
 
     if @closet.save
-      redirect_to @closet, notice: 'Closet was successfully created.'
+      message = 'Closet was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @closet, notice: message
+      end
     else
       render :new
     end

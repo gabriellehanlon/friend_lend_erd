@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @saved_item = SavedItem.new
+    @lend_transaction = LendTransaction.new
+    @preference = Preference.new
+    @closet = Closet.new
   end
 
   # GET /users/new

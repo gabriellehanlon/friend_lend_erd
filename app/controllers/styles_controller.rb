@@ -8,6 +8,8 @@ class StylesController < ApplicationController
 
   # GET /styles/1
   def show
+    @preference = Preference.new
+    @item = Item.new
   end
 
   # GET /styles/new

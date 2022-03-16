@@ -8,6 +8,8 @@ class LetterSizesController < ApplicationController
 
   # GET /letter_sizes/1
   def show
+    @item = Item.new
+    @preference = Preference.new
   end
 
   # GET /letter_sizes/new

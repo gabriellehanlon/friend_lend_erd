@@ -1,0 +1,60 @@
+<!-- Form lend_transaction start -->
+<%= form_with(model: @lend_transaction, local: true) do |f| %>
+<!-- Form lend_transaction end -->
+
+  <!-- Label and input for lender_id start -->
+  <div class="form-group">
+    <%= f.label :lender_id %>
+
+    <!-- Input for lender_id start -->
+    <%= f.text_field :lender_id, class: "form-control" %>
+    <!-- Input for lender_id end -->
+  </div>
+  <!-- Label and input for lender_id end -->
+
+  <!-- Label and input for user_lending_id start -->
+  <div class="form-group">
+    <%= f.label :user_lending_id %>
+
+    <!-- Input for user_lending_id start -->
+    <%= f.text_field :user_lending_id, class: "form-control" %>
+    <!-- Input for user_lending_id end -->
+  </div>
+  <!-- Label and input for user_lending_id end -->
+
+  <!-- Label and input for pickup_date_time start -->
+  <div class="form-group">
+    <%= f.label :pickup_date_time %>
+    <!-- Input for pickup_date_time start -->
+    <%= f.datetime_select :pickup_date_time, class: "form-control" %>
+    <!-- Input for pickup_date_time end -->
+  </div>
+  <!-- Label and input for pickup_date_time end -->
+
+  <!-- Label and input for rental_period start -->
+  <div class="form-group">
+    <%= f.label :rental_period %>
+
+    <!-- Input for rental_period start -->
+    <%= f.date_select :rental_period, class: "form-control" %>
+    <!-- Input for rental_period end -->
+  </div>
+  <!-- Label and input for rental_period end -->
+
+  <!-- Label and input for item_id start -->
+  <!-- Input for item_id start -->
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <!-- Input for item_id end -->
+  <!-- Label and input for item_id end -->
+
+  <!-- Label and input for chat_history start -->
+  <div class="form-group">
+    <%= f.label :chat_history %>
+    <!-- Input for chat_history start -->
+    <%= f.text_area :chat_history, rows: "3", class: "form-control" %>
+    <!-- Input for chat_history end -->
+  </div>
+  <!-- Label and input for chat_history end -->
+
+  <%= f.submit "Create lend transaction", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

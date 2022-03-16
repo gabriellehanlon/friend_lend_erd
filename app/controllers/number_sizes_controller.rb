@@ -8,6 +8,8 @@ class NumberSizesController < ApplicationController
 
   # GET /number_sizes/1
   def show
+    @item = Item.new
+    @preference = Preference.new
   end
 
   # GET /number_sizes/new

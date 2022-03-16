@@ -8,6 +8,7 @@ class ItemTypesController < ApplicationController
 
   # GET /item_types/1
   def show
+    @item = Item.new
   end
 
   # GET /item_types/new

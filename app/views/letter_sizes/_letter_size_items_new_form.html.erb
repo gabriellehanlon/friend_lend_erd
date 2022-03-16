@@ -1,0 +1,81 @@
+<!-- Form item start -->
+<%= form_with(model: @item, local: true) do |f| %>
+<!-- Form item end -->
+
+  <!-- Label and input for closet_id start -->
+  <div class="form-group">
+    <%= f.label :closet_id %>
+
+    <!-- Input for closet_id start -->
+    <%= f.text_field :closet_id, class: "form-control" %>
+    <!-- Input for closet_id end -->
+  </div>
+  <!-- Label and input for closet_id end -->
+
+  <!-- Label and input for item_name start -->
+  <div class="form-group">
+    <%= f.label :item_name %>
+    <!-- Input for item_name start -->
+    <%= f.text_area :item_name, rows: "3", class: "form-control" %>
+    <!-- Input for item_name end -->
+  </div>
+  <!-- Label and input for item_name end -->
+
+  <!-- Label and input for item_type_id start -->
+  <div class="form-group">
+    <%= f.label :item_type_id %>
+
+    <!-- Input for item_type_id start -->
+    <%= f.text_field :item_type_id, class: "form-control" %>
+    <!-- Input for item_type_id end -->
+  </div>
+  <!-- Label and input for item_type_id end -->
+
+  <!-- Label and input for style_id start -->
+  <div class="form-group">
+    <%= f.label :style_id %>
+
+    <!-- Input for style_id start -->
+    <%= f.text_field :style_id, class: "form-control" %>
+    <!-- Input for style_id end -->
+  </div>
+  <!-- Label and input for style_id end -->
+
+  <!-- Label and input for letter_size_id start -->
+  <!-- Input for letter_size_id start -->
+  <%= f.hidden_field :letter_size_id, value: @letter_size.id %>
+  <!-- Input for letter_size_id end -->
+  <!-- Label and input for letter_size_id end -->
+
+  <!-- Label and input for number_size_id start -->
+  <div class="form-group">
+    <%= f.label :number_size_id %>
+
+    <!-- Input for number_size_id start -->
+    <%= f.text_field :number_size_id, class: "form-control" %>
+    <!-- Input for number_size_id end -->
+  </div>
+  <!-- Label and input for number_size_id end -->
+
+  <!-- Label and input for item_description start -->
+  <div class="form-group">
+    <%= f.label :item_description %>
+
+    <!-- Input for item_description start -->
+    <%= f.text_field :item_description, class: "form-control" %>
+    <!-- Input for item_description end -->
+  </div>
+  <!-- Label and input for item_description end -->
+
+  <!-- Label and input for photos start -->
+  <div class="form-group">
+    <%= f.label :photos %>
+
+    <!-- Input for photos start -->
+    <%= f.text_field :photos, class: "form-control" %>
+    <!-- Input for photos end -->
+  </div>
+  <!-- Label and input for photos end -->
+
+  <%= f.submit "Create item", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
