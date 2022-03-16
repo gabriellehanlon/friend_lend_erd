@@ -13,6 +13,8 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :item_type
+
   has_many   :saved_items
 
   has_many   :lend_transactions
