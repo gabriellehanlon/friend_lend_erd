@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  belongs_to :closet,
+             :counter_cache => true
+
   belongs_to :style,
              :required => false,
              :counter_cache => true

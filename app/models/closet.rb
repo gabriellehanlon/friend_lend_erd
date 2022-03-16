@@ -1,6 +1,9 @@
 class Closet < ApplicationRecord
   # Direct associations
 
+  has_many   :items,
+             :dependent => :destroy
+
   belongs_to :user,
              :counter_cache => true
 
