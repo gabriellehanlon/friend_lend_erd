@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :saved_items,
+             :dependent => :destroy
+
   has_many   :items_borrowed,
              :class_name => "LendTransaction",
              :foreign_key => "user_lending_id"
