@@ -5,6 +5,8 @@ class NumberSize < ApplicationRecord
 
   # Validations
 
+  validates :size, :numericality => true
+
   # Scopes
 
   def to_s

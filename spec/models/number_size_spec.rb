@@ -12,5 +12,7 @@ RSpec.describe NumberSize, type: :model do
 
     describe "Validations" do
 
+    it { should validate_numericality_of(:size) }
+
     end
 end
