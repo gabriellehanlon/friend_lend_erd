@@ -46,7 +46,7 @@
     <%= f.label :letter_size_id %>
 
     <!-- Input for letter_size_id start -->
-    <%= f.text_field :letter_size_id, class: "form-control" %>
+    <%= f.collection_select :letter_size_id, LetterSize.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for letter_size_id end -->
   </div>
   <!-- Label and input for letter_size_id end -->
