@@ -1,6 +1,9 @@
 class ItemType < ApplicationRecord
   # Direct associations
 
+  has_many   :items,
+             :dependent => :nullify
+
   # Indirect associations
 
   # Validations

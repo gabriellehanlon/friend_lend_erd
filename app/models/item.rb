@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  belongs_to :item_type,
+             :counter_cache => true
+
   has_many   :saved_items,
              :dependent => :destroy
 
