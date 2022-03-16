@@ -4,27 +4,22 @@ class ClosetsController < ApplicationController
 
   before_action :set_closet, only: %i[show edit update destroy]
 
-  # GET /closets
   def index
     @q = Closet.ransack(params[:q])
     @closets = @q.result(distinct: true).includes(:user,
                                                   :items).page(params[:page]).per(10)
   end
 
-  # GET /closets/1
   def show
     @item = Item.new
   end
 
-  # GET /closets/new
   def new
     @closet = Closet.new
   end
 
-  # GET /closets/1/edit
   def edit; end
 
-  # POST /closets
   def create
     @closet = Closet.new(closet_params)
 
@@ -40,7 +35,6 @@ class ClosetsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /closets/1
   def update
     if @closet.update(closet_params)
       redirect_to @closet, notice: "Closet was successfully updated."
@@ -49,7 +43,6 @@ class ClosetsController < ApplicationController
     end
   end
 
-  # DELETE /closets/1
   def destroy
     @closet.destroy
     message = "Closet was successfully deleted."
@@ -70,12 +63,10 @@ class ClosetsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_closet
     @closet = Closet.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def closet_params
     params.require(:closet).permit(:user_id)
   end

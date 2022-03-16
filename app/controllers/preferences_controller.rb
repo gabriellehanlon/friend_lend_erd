@@ -4,25 +4,20 @@ class PreferencesController < ApplicationController
 
   before_action :set_preference, only: %i[show edit update destroy]
 
-  # GET /preferences
   def index
     @q = current_user.preferences.ransack(params[:q])
     @preferences = @q.result(distinct: true).includes(:user, :style,
                                                       :letter_size, :number_size).page(params[:page]).per(10)
   end
 
-  # GET /preferences/1
   def show; end
 
-  # GET /preferences/new
   def new
     @preference = Preference.new
   end
 
-  # GET /preferences/1/edit
   def edit; end
 
-  # POST /preferences
   def create
     @preference = Preference.new(preference_params)
 
@@ -38,7 +33,6 @@ class PreferencesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /preferences/1
   def update
     if @preference.update(preference_params)
       redirect_to @preference, notice: "Preference was successfully updated."
@@ -47,7 +41,6 @@ class PreferencesController < ApplicationController
     end
   end
 
-  # DELETE /preferences/1
   def destroy
     @preference.destroy
     message = "Preference was successfully deleted."
@@ -68,12 +61,10 @@ class PreferencesController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_preference
     @preference = Preference.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def preference_params
     params.require(:preference).permit(:user_id, :number_size_id,
                                        :letter_size_id, :style_id)
