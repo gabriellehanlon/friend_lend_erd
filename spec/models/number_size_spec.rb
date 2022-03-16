@@ -4,6 +4,8 @@ RSpec.describe NumberSize, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:preferences) }
+
     end
 
     describe "InDirect Associations" do

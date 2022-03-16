@@ -1,6 +1,9 @@
 class NumberSize < ApplicationRecord
   # Direct associations
 
+  has_many   :preferences,
+             :dependent => :nullify
+
   # Indirect associations
 
   # Validations
