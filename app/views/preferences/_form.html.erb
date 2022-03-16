@@ -1,0 +1,109 @@
+<% was_validated = preference.errors.any? %>
+
+<%= form_with(model: preference, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = preference.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% preference.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for number_size_id start -->
+  <div class="form-group">
+    <% number_size_class = "form-control" %>
+    <% number_size_was_invalid = preference.errors.include?(:number_size) %>
+
+    <% if was_validated %>
+      <% if number_size_was_invalid %>
+        <% number_size_class << " is-invalid" %>
+      <% else %>
+        <% number_size_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :number_size_id %>
+    <!-- Input for number_size_id start -->
+    <%= f.number_field :number_size_id, class: number_size_class, placeholder: "Enter number size" %>
+    <!-- Input for number_size_id end -->
+    <% if number_size_was_invalid %>
+      <% preference.errors.full_messages_for(:number_size).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for number_size_id end -->
+  <!-- Label and input for letter_size_id start -->
+  <div class="form-group">
+    <% letter_size_class = "form-control" %>
+    <% letter_size_was_invalid = preference.errors.include?(:letter_size) %>
+
+    <% if was_validated %>
+      <% if letter_size_was_invalid %>
+        <% letter_size_class << " is-invalid" %>
+      <% else %>
+        <% letter_size_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :letter_size_id %>
+    <!-- Input for letter_size_id start -->
+    <%= f.number_field :letter_size_id, class: letter_size_class, placeholder: "Enter letter size" %>
+    <!-- Input for letter_size_id end -->
+    <% if letter_size_was_invalid %>
+      <% preference.errors.full_messages_for(:letter_size).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for letter_size_id end -->
+  <!-- Label and input for style_id start -->
+  <div class="form-group">
+    <% style_class = "form-control" %>
+    <% style_was_invalid = preference.errors.include?(:style) %>
+
+    <% if was_validated %>
+      <% if style_was_invalid %>
+        <% style_class << " is-invalid" %>
+      <% else %>
+        <% style_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :style_id %>
+    <!-- Input for style_id start -->
+    <%= f.number_field :style_id, class: style_class, placeholder: "Enter style" %>
+    <!-- Input for style_id end -->
+    <% if style_was_invalid %>
+      <% preference.errors.full_messages_for(:style).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for style_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
