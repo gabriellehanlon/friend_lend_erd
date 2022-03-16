@@ -1,6 +1,9 @@
 class Style < ApplicationRecord
   # Direct associations
 
+  has_many   :preferences,
+             :dependent => :nullify
+
   has_many   :items,
              :dependent => :nullify
 
