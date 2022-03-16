@@ -25,6 +25,10 @@ class Item < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :user,
+             :through => :closet,
+             :source => :user
+
   # Validations
 
   validates :item_name, :presence => { :message => "Please label item" }

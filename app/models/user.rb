@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :items,
+             :through => :closets,
+             :source => :items
+
   has_many   :letter_sizes,
              :through => :preferences,
              :source => :letter_size
