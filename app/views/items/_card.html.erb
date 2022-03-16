@@ -42,7 +42,9 @@
 
       <dt>Photos</dt>
       <!-- Display photos start -->
-      <dd><%= item.photos %></dd>
+      <dd>
+        <%= cl_image_tag @item.photos, class: "img-fluid" %>
+      </dd>
       <!-- Display photos end -->
 
     </dl>

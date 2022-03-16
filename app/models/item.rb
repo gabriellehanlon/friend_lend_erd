@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  mount_base64_uploader :photos, PhotoUploader
+
   # Direct associations
 
   belongs_to :number_size,

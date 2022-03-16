@@ -198,7 +198,7 @@
 
     <%= f.label :photos %>
     <!-- Input for photos start -->
-    <%= f.text_field :photos, class: photo_class, placeholder: "Enter photo" %>
+    <%= f.file_field :photos, class: "form-control" %>
     <!-- Input for photos end -->
     <% if photo_was_invalid %>
       <% item.errors.full_messages_for(:photo).each do |message| %>
