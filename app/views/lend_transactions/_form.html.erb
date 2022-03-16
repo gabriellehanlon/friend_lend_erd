@@ -42,7 +42,7 @@
 
     <%= f.label :user_lending_id %>
     <!-- Input for user_lending_id start -->
-    <%= f.number_field :user_lending_id, class: user_lending_class, placeholder: "Enter user lending" %>
+    <%= f.collection_select :user_lending_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for user_lending_id end -->
     <% if user_lending_was_invalid %>
       <% lend_transaction.errors.full_messages_for(:user_lending).each do |message| %>

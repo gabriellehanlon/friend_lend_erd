@@ -17,7 +17,7 @@
     <%= f.label :user_lending_id %>
 
     <!-- Input for user_lending_id start -->
-    <%= f.text_field :user_lending_id, class: "form-control" %>
+    <%= f.collection_select :user_lending_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for user_lending_id end -->
   </div>
   <!-- Label and input for user_lending_id end -->
