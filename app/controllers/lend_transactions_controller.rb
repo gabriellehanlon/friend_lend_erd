@@ -7,7 +7,7 @@ class LendTransactionsController < ApplicationController
 
   # GET /lend_transactions
   def index
-    @lend_transactions = LendTransaction.all
+    @lend_transactions = current_user.items_borrowed.page(params[:page]).per(10)
   end
 
   # GET /lend_transactions/1
