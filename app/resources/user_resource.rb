@@ -24,6 +24,8 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :letter_sizes
+
   many_to_many :number_sizes
 
 end
