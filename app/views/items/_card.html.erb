@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Closet</dt>
       <!-- Display closet_id start -->
-      <dd><%= item.closet_id %></dd>
+      <dd>
+        <% if @item.closet.present? %>
+          <%= link_to item.closet, item.closet %>
+        <% end %>
+      </dd>
       <!-- Display closet_id end -->
 
       <dt>Item name</dt>
@@ -17,22 +21,38 @@
 
       <dt>Item type</dt>
       <!-- Display item_type_id start -->
-      <dd><%= item.item_type_id %></dd>
+      <dd>
+        <% if @item.item_type.present? %>
+          <%= link_to item.item_type, item.item_type %>
+        <% end %>
+      </dd>
       <!-- Display item_type_id end -->
 
       <dt>Style</dt>
       <!-- Display style_id start -->
-      <dd><%= item.style_id %></dd>
+      <dd>
+        <% if @item.style.present? %>
+          <%= link_to item.style, item.style %>
+        <% end %>
+      </dd>
       <!-- Display style_id end -->
 
       <dt>Letter size</dt>
       <!-- Display letter_size_id start -->
-      <dd><%= item.letter_size_id %></dd>
+      <dd>
+        <% if @item.letter_size.present? %>
+          <%= link_to item.letter_size, item.letter_size %>
+        <% end %>
+      </dd>
       <!-- Display letter_size_id end -->
 
       <dt>Number size</dt>
       <!-- Display number_size_id start -->
-      <dd><%= item.number_size_id %></dd>
+      <dd>
+        <% if @item.number_size.present? %>
+          <%= link_to item.number_size, item.number_size %>
+        <% end %>
+      </dd>
       <!-- Display number_size_id end -->
 
       <dt>Item description</dt>

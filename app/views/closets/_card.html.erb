@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= closet.user_id %></dd>
+      <dd>
+        <% if @closet.user.present? %>
+          <%= link_to closet.user, closet.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>

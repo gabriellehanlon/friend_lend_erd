@@ -7,22 +7,38 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= preference.user_id %></dd>
+      <dd>
+        <% if @preference.user.present? %>
+          <%= link_to preference.user, preference.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Number size</dt>
       <!-- Display number_size_id start -->
-      <dd><%= preference.number_size_id %></dd>
+      <dd>
+        <% if @preference.number_size.present? %>
+          <%= link_to preference.number_size, preference.number_size %>
+        <% end %>
+      </dd>
       <!-- Display number_size_id end -->
 
       <dt>Letter size</dt>
       <!-- Display letter_size_id start -->
-      <dd><%= preference.letter_size_id %></dd>
+      <dd>
+        <% if @preference.letter_size.present? %>
+          <%= link_to preference.letter_size, preference.letter_size %>
+        <% end %>
+      </dd>
       <!-- Display letter_size_id end -->
 
       <dt>Style</dt>
       <!-- Display style_id start -->
-      <dd><%= preference.style_id %></dd>
+      <dd>
+        <% if @preference.style.present? %>
+          <%= link_to preference.style, preference.style %>
+        <% end %>
+      </dd>
       <!-- Display style_id end -->
 
     </dl>
