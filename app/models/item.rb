@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  has_many   :lend_transactions,
+             :dependent => :nullify
+
   belongs_to :closet,
              :counter_cache => true
 
