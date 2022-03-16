@@ -6,40 +6,32 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @preference.user.present? %>
           <%= link_to preference.user, preference.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Number size</dt>
-      <!-- Display number_size_id start -->
       <dd>
         <% if @preference.number_size.present? %>
           <%= link_to preference.number_size, preference.number_size %>
         <% end %>
       </dd>
-      <!-- Display number_size_id end -->
 
       <dt>Letter size</dt>
-      <!-- Display letter_size_id start -->
       <dd>
         <% if @preference.letter_size.present? %>
           <%= link_to preference.letter_size, preference.letter_size %>
         <% end %>
       </dd>
-      <!-- Display letter_size_id end -->
 
       <dt>Style</dt>
-      <!-- Display style_id start -->
       <dd>
         <% if @preference.style.present? %>
           <%= link_to preference.style, preference.style %>
         <% end %>
       </dd>
-      <!-- Display style_id end -->
 
     </dl>
 
@@ -48,7 +40,6 @@
         <%= link_to_show_or_back preference, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link preference start -->
       <div class="col">
         <% if current_user == @preference.user %>
           <%= link_to edit_preference_url(preference), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -56,9 +47,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link preference end -->
 
-      <!-- Delete link preference start -->
       <div class="col">
         <% if current_user == @preference.user %>
           <%= link_to preference, method: :delete, data: { confirm: "Do you really want to delete this preference?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -66,7 +55,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link preference end -->
     </div>
   </div>
 

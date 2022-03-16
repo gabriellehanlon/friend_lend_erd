@@ -1,7 +1,6 @@
 <% was_validated = item.errors.any? %>
 
 <%= form_with(model: item, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for closet_id start -->
   <div class="form-group">
     <% closet_class = "form-control" %>
     <% closet_was_invalid = item.errors.include?(:closet) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :closet_id %>
-    <!-- Input for closet_id start -->
     <%= f.collection_select :closet_id, Closet.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for closet_id end -->
     <% if closet_was_invalid %>
       <% item.errors.full_messages_for(:closet).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for closet_id end -->
-  <!-- Label and input for item_name start -->
   <div class="form-group">
     <% item_name_class = "form-control" %>
     <% item_name_was_invalid = item.errors.include?(:item_name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :item_name %>
-    <!-- Input for item_name start -->
     <%= f.text_area :item_name, class: item_name_class, placeholder: "Enter item name" %>
-    <!-- Input for item_name end -->
     <% if item_name_was_invalid %>
       <% item.errors.full_messages_for(:item_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for item_name end -->
-  <!-- Label and input for item_type_id start -->
   <div class="form-group">
     <% item_type_class = "form-control" %>
     <% item_type_was_invalid = item.errors.include?(:item_type) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :item_type_id %>
-    <!-- Input for item_type_id start -->
     <%= f.collection_select :item_type_id, ItemType.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for item_type_id end -->
     <% if item_type_was_invalid %>
       <% item.errors.full_messages_for(:item_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for item_type_id end -->
-  <!-- Label and input for style_id start -->
   <div class="form-group">
     <% style_class = "form-control" %>
     <% style_was_invalid = item.errors.include?(:style) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :style_id %>
-    <!-- Input for style_id start -->
     <%= f.collection_select :style_id, Style.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for style_id end -->
     <% if style_was_invalid %>
       <% item.errors.full_messages_for(:style).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for style_id end -->
-  <!-- Label and input for letter_size_id start -->
   <div class="form-group">
     <% letter_size_class = "form-control" %>
     <% letter_size_was_invalid = item.errors.include?(:letter_size) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :letter_size_id %>
-    <!-- Input for letter_size_id start -->
     <%= f.collection_select :letter_size_id, LetterSize.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for letter_size_id end -->
     <% if letter_size_was_invalid %>
       <% item.errors.full_messages_for(:letter_size).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for letter_size_id end -->
-  <!-- Label and input for number_size_id start -->
   <div class="form-group">
     <% number_size_class = "form-control" %>
     <% number_size_was_invalid = item.errors.include?(:number_size) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :number_size_id %>
-    <!-- Input for number_size_id start -->
     <%= f.collection_select :number_size_id, NumberSize.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for number_size_id end -->
     <% if number_size_was_invalid %>
       <% item.errors.full_messages_for(:number_size).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,8 +133,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for number_size_id end -->
-  <!-- Label and input for item_description start -->
   <div class="form-group">
     <% item_description_class = "form-control" %>
     <% item_description_was_invalid = item.errors.include?(:item_description) %>
@@ -171,9 +146,7 @@
     <% end %>
 
     <%= f.label :item_description %>
-    <!-- Input for item_description start -->
     <%= f.text_field :item_description, class: item_description_class, placeholder: "Enter item description" %>
-    <!-- Input for item_description end -->
     <% if item_description_was_invalid %>
       <% item.errors.full_messages_for(:item_description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -182,8 +155,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for item_description end -->
-  <!-- Label and input for photos start -->
   <div class="form-group">
     <% photo_class = "form-control" %>
     <% photo_was_invalid = item.errors.include?(:photo) %>
@@ -197,9 +168,7 @@
     <% end %>
 
     <%= f.label :photos %>
-    <!-- Input for photos start -->
     <%= f.file_field :photos, class: "form-control" %>
-    <!-- Input for photos end -->
     <% if photo_was_invalid %>
       <% item.errors.full_messages_for(:photo).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -208,6 +177,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for photos end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

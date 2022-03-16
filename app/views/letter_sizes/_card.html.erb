@@ -6,9 +6,7 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Size</dt>
-      <!-- Display size start -->
       <dd><%= letter_size.size %></dd>
-      <!-- Display size end -->
 
     </dl>
 
@@ -17,21 +15,17 @@
         <%= link_to_show_or_back letter_size, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link letter_size start -->
       <div class="col">
         <%= link_to edit_letter_size_url(letter_size), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link letter_size end -->
 
-      <!-- Delete link letter_size start -->
       <div class="col">
         <%= link_to letter_size, method: :delete, data: { confirm: "Do you really want to delete this letter_size?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link letter_size end -->
     </div>
   </div>
 

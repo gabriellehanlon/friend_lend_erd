@@ -1,18 +1,8 @@
-<!-- Form saved_item start -->
 <%= form_with(model: @saved_item, local: true) do |f| %>
-<!-- Form saved_item end -->
 
-  <!-- Label and input for item_id start -->
-  <!-- Input for item_id start -->
   <%= f.hidden_field :item_id, value: @item.id %>
-  <!-- Input for item_id end -->
-  <!-- Label and input for item_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
   <%= f.submit "Create saved item", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

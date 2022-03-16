@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @user.letter_sizes.each do |letter_size| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/letter_sizes/<%= letter_size.id %>">
           <%= letter_size %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

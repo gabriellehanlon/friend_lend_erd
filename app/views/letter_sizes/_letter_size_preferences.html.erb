@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @letter_size.preferences.each do |preference| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to preference, preference %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == preference.user %>
           <%= link_to preference, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="letter_size_preferences_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "letter_sizes/letter_size_preferences_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

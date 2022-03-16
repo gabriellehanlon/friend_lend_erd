@@ -6,13 +6,11 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @closet.user.present? %>
           <%= link_to closet.user, closet.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
     </dl>
 
@@ -21,7 +19,6 @@
         <%= link_to_show_or_back closet, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link closet start -->
       <div class="col">
         <% if current_user == @closet.user %>
           <%= link_to edit_closet_url(closet), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -29,9 +26,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link closet end -->
 
-      <!-- Delete link closet start -->
       <div class="col">
         <% if current_user == @closet.user %>
           <%= link_to closet, method: :delete, data: { confirm: "Do you really want to delete this closet?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -39,7 +34,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link closet end -->
     </div>
   </div>
 

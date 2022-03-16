@@ -1,7 +1,6 @@
 <% was_validated = number_size.errors.any? %>
 
 <%= form_with(model: number_size, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for size start -->
   <div class="form-group">
     <% size_class = "form-control" %>
     <% size_was_invalid = number_size.errors.include?(:size) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :size %>
-    <!-- Input for size start -->
     <%= f.number_field :size, class: size_class, placeholder: "Enter size" %>
-    <!-- Input for size end -->
     <% if size_was_invalid %>
       <% number_size.errors.full_messages_for(:size).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,6 +23,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for size end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

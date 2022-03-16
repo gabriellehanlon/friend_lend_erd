@@ -1,42 +1,24 @@
-<!-- Form preference start -->
 <%= form_with(model: @preference, local: true) do |f| %>
-<!-- Form preference end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for number_size_id start -->
   <div class="form-group">
     <%= f.label :number_size_id %>
 
-    <!-- Input for number_size_id start -->
     <%= f.collection_select :number_size_id, NumberSize.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for number_size_id end -->
   </div>
-  <!-- Label and input for number_size_id end -->
 
-  <!-- Label and input for letter_size_id start -->
   <div class="form-group">
     <%= f.label :letter_size_id %>
 
-    <!-- Input for letter_size_id start -->
     <%= f.collection_select :letter_size_id, LetterSize.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for letter_size_id end -->
   </div>
-  <!-- Label and input for letter_size_id end -->
 
-  <!-- Label and input for style_id start -->
   <div class="form-group">
     <%= f.label :style_id %>
 
-    <!-- Input for style_id start -->
     <%= f.collection_select :style_id, Style.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for style_id end -->
   </div>
-  <!-- Label and input for style_id end -->
 
   <%= f.submit "Create preference", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

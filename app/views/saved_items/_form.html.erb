@@ -1,7 +1,6 @@
 <% was_validated = saved_item.errors.any? %>
 
 <%= form_with(model: saved_item, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for item_id start -->
   <div class="form-group">
     <% item_class = "form-control" %>
     <% item_was_invalid = saved_item.errors.include?(:item) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :item_id %>
-    <!-- Input for item_id start -->
     <%= f.collection_select :item_id, Item.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for item_id end -->
     <% if item_was_invalid %>
       <% saved_item.errors.full_messages_for(:item).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,11 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for item_id end -->
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

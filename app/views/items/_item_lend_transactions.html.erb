@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @item.lend_transactions.each do |lend_transaction| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to lend_transaction, lend_transaction %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == lend_transaction.user_lending %>
           <%= link_to lend_transaction, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="item_lend_transactions_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "items/item_lend_transactions_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

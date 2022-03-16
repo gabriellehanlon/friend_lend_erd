@@ -1,17 +1,8 @@
 <% was_validated = lend_transaction.errors.any? %>
 
 <%= form_with(model: lend_transaction, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for lender_id start -->
-  <!-- Input for "lender_id" start -->
   <%= f.hidden_field :lender_id, value: current_user.id %>
-  <!-- Input for "lender_id" end -->
-  <!-- Label and input for lender_id end -->
-  <!-- Label and input for user_lending_id start -->
-  <!-- Input for "user_lending_id" start -->
   <%= f.hidden_field :user_lending_id, value: current_user.id %>
-  <!-- Input for "user_lending_id" end -->
-  <!-- Label and input for user_lending_id end -->
-  <!-- Label and input for pickup_date_time start -->
   <div class="form-group">
     <% pickup_date_time_class = "form-control" %>
     <% pickup_date_time_was_invalid = lend_transaction.errors.include?(:pickup_date_time) %>
@@ -25,9 +16,7 @@
     <% end %>
 
     <%= f.label :pickup_date_time %>
-    <!-- Input for pickup_date_time start -->
     <%= f.datetime_select :pickup_date_time, class: pickup_date_time_class, placeholder: "Enter pickup date time" %>
-    <!-- Input for pickup_date_time end -->
     <% if pickup_date_time_was_invalid %>
       <% lend_transaction.errors.full_messages_for(:pickup_date_time).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -36,8 +25,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for pickup_date_time end -->
-  <!-- Label and input for rental_period start -->
   <div class="form-group">
     <% rental_period_class = "form-control" %>
     <% rental_period_was_invalid = lend_transaction.errors.include?(:rental_period) %>
@@ -51,9 +38,7 @@
     <% end %>
 
     <%= f.label :rental_period %>
-    <!-- Input for rental_period start -->
     <%= f.time_select :rental_period, class: rental_period_class, placeholder: "Enter rental period" %>
-    <!-- Input for rental_period end -->
     <% if rental_period_was_invalid %>
       <% lend_transaction.errors.full_messages_for(:rental_period).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -62,8 +47,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for rental_period end -->
-  <!-- Label and input for item_id start -->
   <div class="form-group">
     <% item_class = "form-control" %>
     <% item_was_invalid = lend_transaction.errors.include?(:item) %>
@@ -77,9 +60,7 @@
     <% end %>
 
     <%= f.label :item_id %>
-    <!-- Input for item_id start -->
     <%= f.collection_select :item_id, Item.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for item_id end -->
     <% if item_was_invalid %>
       <% lend_transaction.errors.full_messages_for(:item).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -88,8 +69,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for item_id end -->
-  <!-- Label and input for chat_history start -->
   <div class="form-group">
     <% chat_history_class = "form-control" %>
     <% chat_history_was_invalid = lend_transaction.errors.include?(:chat_history) %>
@@ -103,9 +82,7 @@
     <% end %>
 
     <%= f.label :chat_history %>
-    <!-- Input for chat_history start -->
     <%= f.text_area :chat_history, class: chat_history_class, placeholder: "Enter chat history" %>
-    <!-- Input for chat_history end -->
     <% if chat_history_was_invalid %>
       <% lend_transaction.errors.full_messages_for(:chat_history).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -114,6 +91,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for chat_history end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

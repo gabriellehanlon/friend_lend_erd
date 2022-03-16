@@ -6,46 +6,34 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Lender</dt>
-      <!-- Display lender_id start -->
       <dd>
         <% if @lend_transaction.lender.present? %>
           <%= link_to lend_transaction.lender, lend_transaction.lender %>
         <% end %>
       </dd>
-      <!-- Display lender_id end -->
 
       <dt>User lending</dt>
-      <!-- Display user_lending_id start -->
       <dd>
         <% if @lend_transaction.user_lending.present? %>
           <%= link_to lend_transaction.user_lending, lend_transaction.user_lending %>
         <% end %>
       </dd>
-      <!-- Display user_lending_id end -->
 
       <dt>Pickup date time</dt>
-      <!-- Display pickup_date_time start -->
       <dd><%= lend_transaction.pickup_date_time %></dd>
-      <!-- Display pickup_date_time end -->
 
       <dt>Rental period</dt>
-      <!-- Display rental_period start -->
       <dd><%= lend_transaction.rental_period %></dd>
-      <!-- Display rental_period end -->
 
       <dt>Item</dt>
-      <!-- Display item_id start -->
       <dd>
         <% if @lend_transaction.item.present? %>
           <%= link_to lend_transaction.item, lend_transaction.item %>
         <% end %>
       </dd>
-      <!-- Display item_id end -->
 
       <dt>Chat history</dt>
-      <!-- Display chat_history start -->
       <dd><%= lend_transaction.chat_history %></dd>
-      <!-- Display chat_history end -->
 
     </dl>
 
@@ -54,7 +42,6 @@
         <%= link_to_show_or_back lend_transaction, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link lend_transaction start -->
       <div class="col">
         <% if current_user == @lend_transaction.user_lending %>
           <%= link_to edit_lend_transaction_url(lend_transaction), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -62,9 +49,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link lend_transaction end -->
 
-      <!-- Delete link lend_transaction start -->
       <div class="col">
         <% if current_user == @lend_transaction.user_lending %>
           <%= link_to lend_transaction, method: :delete, data: { confirm: "Do you really want to delete this lend_transaction?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -72,7 +57,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link lend_transaction end -->
     </div>
   </div>
 

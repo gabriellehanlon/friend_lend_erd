@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @item.saved_items.each do |saved_item| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to saved_item, saved_item %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == saved_item.user %>
           <%= link_to saved_item, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="item_saved_items_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "items/item_saved_items_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 
