@@ -6,6 +6,8 @@ class StyleResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :preferences
+
   has_many   :items
 
   # Indirect associations

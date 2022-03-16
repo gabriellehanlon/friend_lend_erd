@@ -9,6 +9,8 @@ class PreferenceResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :style
+
   belongs_to :user
 
   # Indirect associations
