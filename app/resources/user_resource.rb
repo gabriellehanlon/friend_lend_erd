@@ -9,6 +9,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :lend_transactions,
+             foreign_key: :lender_id
+
   has_many   :preferences
 
   has_many   :closets
