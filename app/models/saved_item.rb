@@ -1,6 +1,8 @@
 class SavedItem < ApplicationRecord
   # Direct associations
 
+  belongs_to :item
+
   belongs_to :user,
              :counter_cache => true
 

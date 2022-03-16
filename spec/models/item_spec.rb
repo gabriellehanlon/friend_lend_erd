@@ -4,6 +4,8 @@ RSpec.describe Item, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:saved_items) }
+
     it { should have_many(:lend_transactions) }
 
     it { should belong_to(:closet) }

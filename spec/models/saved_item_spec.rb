@@ -4,6 +4,8 @@ RSpec.describe SavedItem, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:item) }
+
     it { should belong_to(:user) }
 
     end

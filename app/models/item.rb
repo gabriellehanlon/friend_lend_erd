@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  has_many   :saved_items,
+             :dependent => :destroy
+
   has_many   :lend_transactions,
              :dependent => :nullify
 
