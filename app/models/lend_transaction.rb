@@ -1,6 +1,9 @@
 class LendTransaction < ApplicationRecord
   # Direct associations
 
+  belongs_to :lender,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations

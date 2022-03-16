@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :lend_transactions,
+             :foreign_key => "lender_id"
+
   has_many   :preferences,
              :dependent => :destroy
 
