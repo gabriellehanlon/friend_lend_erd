@@ -16,7 +16,7 @@
 
     <%= f.label :closet_id %>
     <!-- Input for closet_id start -->
-    <%= f.number_field :closet_id, class: closet_class, placeholder: "Enter closet" %>
+    <%= f.collection_select :closet_id, Closet.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for closet_id end -->
     <% if closet_was_invalid %>
       <% item.errors.full_messages_for(:closet).each do |message| %>
