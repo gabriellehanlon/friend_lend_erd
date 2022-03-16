@@ -3,13 +3,9 @@
 <!-- Form lend_transaction end -->
 
   <!-- Label and input for lender_id start -->
-  <div class="form-group">
-    <%= f.label :lender_id %>
-
-    <!-- Input for lender_id start -->
-    <%= f.collection_select :lender_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for lender_id end -->
-  </div>
+  <!-- Input for "lender_id" start -->
+  <%= f.hidden_field :lender_id, value: current_user.id %>
+  <!-- Input for "lender_id" end -->
   <!-- Label and input for lender_id end -->
 
   <!-- Label and input for user_lending_id start -->

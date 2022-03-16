@@ -2,30 +2,9 @@
 
 <%= form_with(model: lend_transaction, local: true, novalidate: true, class: "mb-3") do |f| %>
   <!-- Label and input for lender_id start -->
-  <div class="form-group">
-    <% lender_class = "form-control" %>
-    <% lender_was_invalid = lend_transaction.errors.include?(:lender) %>
-
-    <% if was_validated %>
-      <% if lender_was_invalid %>
-        <% lender_class << " is-invalid" %>
-      <% else %>
-        <% lender_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :lender_id %>
-    <!-- Input for lender_id start -->
-    <%= f.collection_select :lender_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for lender_id end -->
-    <% if lender_was_invalid %>
-      <% lend_transaction.errors.full_messages_for(:lender).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "lender_id" start -->
+  <%= f.hidden_field :lender_id, value: current_user.id %>
+  <!-- Input for "lender_id" end -->
   <!-- Label and input for lender_id end -->
   <!-- Label and input for user_lending_id start -->
   <div class="form-group">
