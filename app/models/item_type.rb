@@ -5,6 +5,8 @@ class ItemType < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => { :message => "Please name the item type" }
+
   # Scopes
 
   def to_s
