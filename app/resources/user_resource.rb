@@ -9,6 +9,10 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :items_borrowed,
+             resource: LendTransactionResource,
+             foreign_key: :user_lending_id
+
   has_many   :lend_transactions,
              foreign_key: :lender_id
 

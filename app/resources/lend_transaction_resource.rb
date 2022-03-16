@@ -11,6 +11,9 @@ class LendTransactionResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :user_lending,
+             resource: UserResource
+
   belongs_to :lender,
              resource: UserResource
 
