@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :letter_sizes,
+             :through => :preferences,
+             :source => :letter_size
+
   has_many   :number_sizes,
              :through => :preferences,
              :source => :number_size

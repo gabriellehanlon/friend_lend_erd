@@ -8,6 +8,10 @@ class LetterSize < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :preferences,
+             :source => :user
+
   # Validations
 
   validates :size, :uniqueness => true
