@@ -12,6 +12,8 @@ RSpec.describe Item, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:item_name).with_message('Please label item') }
+
     it { should validate_presence_of(:item_type_id).with_message('Please select an item type') }
 
     it { should validate_presence_of(:photos) }
