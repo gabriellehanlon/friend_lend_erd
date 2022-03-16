@@ -9,6 +9,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :preferences
+
   has_many   :closets
 
   # Indirect associations
