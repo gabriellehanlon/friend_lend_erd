@@ -1,0 +1,76 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Item #<%= item.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Closet</dt>
+      <!-- Display closet_id start -->
+      <dd><%= item.closet_id %></dd>
+      <!-- Display closet_id end -->
+
+      <dt>Item name</dt>
+      <!-- Display item_name start -->
+      <dd><%= item.item_name %></dd>
+      <!-- Display item_name end -->
+
+      <dt>Item type</dt>
+      <!-- Display item_type_id start -->
+      <dd><%= item.item_type_id %></dd>
+      <!-- Display item_type_id end -->
+
+      <dt>Style</dt>
+      <!-- Display style_id start -->
+      <dd><%= item.style_id %></dd>
+      <!-- Display style_id end -->
+
+      <dt>Letter size</dt>
+      <!-- Display letter_size_id start -->
+      <dd><%= item.letter_size_id %></dd>
+      <!-- Display letter_size_id end -->
+
+      <dt>Number size</dt>
+      <!-- Display number_size_id start -->
+      <dd><%= item.number_size_id %></dd>
+      <!-- Display number_size_id end -->
+
+      <dt>Item description</dt>
+      <!-- Display item_description start -->
+      <dd><%= item.item_description %></dd>
+      <!-- Display item_description end -->
+
+      <dt>Photos</dt>
+      <!-- Display photos start -->
+      <dd><%= item.photos %></dd>
+      <!-- Display photos end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back item, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link item start -->
+      <div class="col">
+        <%= link_to edit_item_url(item), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link item end -->
+
+      <!-- Delete link item start -->
+      <div class="col">
+        <%= link_to item, method: :delete, data: { confirm: "Do you really want to delete this item?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link item end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(item.updated_at) %> ago
+  </div>
+</div>
