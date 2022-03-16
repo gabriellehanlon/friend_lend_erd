@@ -52,7 +52,7 @@
     <%= f.label :number_size_id %>
 
     <!-- Input for number_size_id start -->
-    <%= f.text_field :number_size_id, class: "form-control" %>
+    <%= f.collection_select :number_size_id, NumberSize.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for number_size_id end -->
   </div>
   <!-- Label and input for number_size_id end -->
