@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :saved_items
   resources :lend_transactions
   resources :number_sizes
   resources :letter_sizes
