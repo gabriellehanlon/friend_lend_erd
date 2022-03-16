@@ -94,7 +94,7 @@
 
     <%= f.label :style_id %>
     <!-- Input for style_id start -->
-    <%= f.number_field :style_id, class: style_class, placeholder: "Enter style" %>
+    <%= f.collection_select :style_id, Style.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for style_id end -->
     <% if style_was_invalid %>
       <% preference.errors.full_messages_for(:style).each do |message| %>
