@@ -5,6 +5,8 @@ class Item < ApplicationRecord
 
   # Validations
 
+  validates :photos, :presence => true
+
   # Scopes
 
   def to_s
