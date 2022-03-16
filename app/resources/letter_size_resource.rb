@@ -6,6 +6,8 @@ class LetterSizeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :items
+
   has_many   :preferences
 
   # Indirect associations
