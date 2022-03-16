@@ -1,4 +1,6 @@
 class ClosetsController < ApplicationController
+  before_action :current_user_must_be_closet_user, only: [:edit, :update, :destroy] 
+
   before_action :set_closet, only: [:show, :edit, :update, :destroy]
 
   # GET /closets
@@ -58,6 +60,14 @@ class ClosetsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_closet_user
+    set_closet
+    unless current_user == @closet.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_closet
       @closet = Closet.find(params[:id])
