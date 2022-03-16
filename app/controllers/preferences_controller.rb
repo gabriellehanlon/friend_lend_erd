@@ -1,4 +1,6 @@
 class PreferencesController < ApplicationController
+  before_action :current_user_must_be_preference_user, only: [:edit, :update, :destroy] 
+
   before_action :set_preference, only: [:show, :edit, :update, :destroy]
 
   # GET /preferences
@@ -57,6 +59,14 @@ class PreferencesController < ApplicationController
 
 
   private
+
+  def current_user_must_be_preference_user
+    set_preference
+    unless current_user == @preference.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_preference
       @preference = Preference.find(params[:id])

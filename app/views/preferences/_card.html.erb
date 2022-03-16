@@ -34,16 +34,20 @@
 
       <!-- Edit link preference start -->
       <div class="col">
-        <%= link_to edit_preference_url(preference), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @preference.user %>
+          <%= link_to edit_preference_url(preference), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link preference end -->
 
       <!-- Delete link preference start -->
       <div class="col">
-        <%= link_to preference, method: :delete, data: { confirm: "Do you really want to delete this preference?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @preference.user %>
+          <%= link_to preference, method: :delete, data: { confirm: "Do you really want to delete this preference?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link preference end -->
