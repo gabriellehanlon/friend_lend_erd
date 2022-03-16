@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  belongs_to :letter_size,
+             :required => false
+
   belongs_to :item_type,
              :counter_cache => true
 

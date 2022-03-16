@@ -1,6 +1,8 @@
 class LetterSize < ApplicationRecord
   # Direct associations
 
+  has_many   :items
+
   has_many   :preferences,
              :dependent => :nullify
 

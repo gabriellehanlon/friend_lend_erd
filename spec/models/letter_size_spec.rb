@@ -4,6 +4,8 @@ RSpec.describe LetterSize, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:items) }
+
     it { should have_many(:preferences) }
 
     end
