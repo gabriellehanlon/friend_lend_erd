@@ -1,0 +1,41 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Item Type #<%= item_type.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= item_type.name %></dd>
+      <!-- Display name end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back item_type, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link item_type start -->
+      <div class="col">
+        <%= link_to edit_item_type_url(item_type), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link item_type end -->
+
+      <!-- Delete link item_type start -->
+      <div class="col">
+        <%= link_to item_type, method: :delete, data: { confirm: "Do you really want to delete this item_type?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link item_type end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(item_type.updated_at) %> ago
+  </div>
+</div>
