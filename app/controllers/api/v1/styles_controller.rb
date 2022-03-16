@@ -13,7 +13,7 @@ class Api::V1::StylesController < Api::V1::GraphitiController
     style = StyleResource.build(params)
 
     if style.save
-      render jsonapi: style, status: 201
+      render jsonapi: style, status: :created
     else
       render jsonapi_errors: style
     end
@@ -33,7 +33,7 @@ class Api::V1::StylesController < Api::V1::GraphitiController
     style = StyleResource.find(params)
 
     if style.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: style
     end

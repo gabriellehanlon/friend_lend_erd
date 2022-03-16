@@ -13,7 +13,7 @@ class Api::V1::PreferencesController < Api::V1::GraphitiController
     preference = PreferenceResource.build(params)
 
     if preference.save
-      render jsonapi: preference, status: 201
+      render jsonapi: preference, status: :created
     else
       render jsonapi_errors: preference
     end
@@ -33,7 +33,7 @@ class Api::V1::PreferencesController < Api::V1::GraphitiController
     preference = PreferenceResource.find(params)
 
     if preference.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: preference
     end

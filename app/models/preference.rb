@@ -6,8 +6,8 @@ class Preference < ApplicationRecord
   belongs_to :letter_size
 
   belongs_to :style,
-             :required => false,
-             :counter_cache => true
+             optional: true,
+             counter_cache: true
 
   belongs_to :user
 
@@ -20,5 +20,4 @@ class Preference < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

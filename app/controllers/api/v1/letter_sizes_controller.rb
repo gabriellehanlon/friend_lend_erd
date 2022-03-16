@@ -13,7 +13,7 @@ class Api::V1::LetterSizesController < Api::V1::GraphitiController
     letter_size = LetterSizeResource.build(params)
 
     if letter_size.save
-      render jsonapi: letter_size, status: 201
+      render jsonapi: letter_size, status: :created
     else
       render jsonapi_errors: letter_size
     end
@@ -33,7 +33,7 @@ class Api::V1::LetterSizesController < Api::V1::GraphitiController
     letter_size = LetterSizeResource.find(params)
 
     if letter_size.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: letter_size
     end

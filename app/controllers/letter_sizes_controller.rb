@@ -1,10 +1,11 @@
 class LetterSizesController < ApplicationController
-  before_action :set_letter_size, only: [:show, :edit, :update, :destroy]
+  before_action :set_letter_size, only: %i[show edit update destroy]
 
   # GET /letter_sizes
   def index
     @q = LetterSize.ransack(params[:q])
-    @letter_sizes = @q.result(:distinct => true).includes(:preferences, :items, :users).page(params[:page]).per(10)
+    @letter_sizes = @q.result(distinct: true).includes(:preferences, :items,
+                                                       :users).page(params[:page]).per(10)
   end
 
   # GET /letter_sizes/1
@@ -19,15 +20,14 @@ class LetterSizesController < ApplicationController
   end
 
   # GET /letter_sizes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /letter_sizes
   def create
     @letter_size = LetterSize.new(letter_size_params)
 
     if @letter_size.save
-      redirect_to @letter_size, notice: 'Letter size was successfully created.'
+      redirect_to @letter_size, notice: "Letter size was successfully created."
     else
       render :new
     end
@@ -36,7 +36,7 @@ class LetterSizesController < ApplicationController
   # PATCH/PUT /letter_sizes/1
   def update
     if @letter_size.update(letter_size_params)
-      redirect_to @letter_size, notice: 'Letter size was successfully updated.'
+      redirect_to @letter_size, notice: "Letter size was successfully updated."
     else
       render :edit
     end
@@ -45,17 +45,19 @@ class LetterSizesController < ApplicationController
   # DELETE /letter_sizes/1
   def destroy
     @letter_size.destroy
-    redirect_to letter_sizes_url, notice: 'Letter size was successfully destroyed.'
+    redirect_to letter_sizes_url,
+                notice: "Letter size was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_letter_size
-      @letter_size = LetterSize.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def letter_size_params
-      params.require(:letter_size).permit(:size)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_letter_size
+    @letter_size = LetterSize.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def letter_size_params
+    params.require(:letter_size).permit(:size)
+  end
 end

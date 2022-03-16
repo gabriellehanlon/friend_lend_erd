@@ -13,7 +13,7 @@ class Api::V1::SavedItemsController < Api::V1::GraphitiController
     saved_item = SavedItemResource.build(params)
 
     if saved_item.save
-      render jsonapi: saved_item, status: 201
+      render jsonapi: saved_item, status: :created
     else
       render jsonapi_errors: saved_item
     end
@@ -33,7 +33,7 @@ class Api::V1::SavedItemsController < Api::V1::GraphitiController
     saved_item = SavedItemResource.find(params)
 
     if saved_item.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: saved_item
     end

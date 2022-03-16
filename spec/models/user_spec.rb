@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should have_many(:saved_items) }
 
     it { should have_many(:items_borrowed) }
@@ -13,11 +11,9 @@ RSpec.describe User, type: :model do
     it { should have_many(:preferences) }
 
     it { should have_many(:closets) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:styles) }
 
     it { should have_many(:items) }
@@ -25,10 +21,8 @@ RSpec.describe User, type: :model do
     it { should have_many(:letter_sizes) }
 
     it { should have_many(:number_sizes) }
+  end
 
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

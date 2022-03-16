@@ -37,5 +37,4 @@ class UserResource < ApplicationResource
   many_to_many :letter_sizes
 
   many_to_many :number_sizes
-
 end

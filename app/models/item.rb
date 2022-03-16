@@ -4,45 +4,45 @@ class Item < ApplicationRecord
   # Direct associations
 
   belongs_to :number_size,
-             :required => false
+             optional: true
 
   belongs_to :letter_size,
-             :required => false
+             optional: true
 
   belongs_to :item_type,
-             :counter_cache => true
+             counter_cache: true
 
   has_many   :saved_items,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :lend_transactions,
-             :dependent => :nullify
+             dependent: :nullify
 
   belongs_to :closet,
-             :counter_cache => true
+             counter_cache: true
 
   belongs_to :style,
-             :required => false,
-             :counter_cache => true
+             optional: true,
+             counter_cache: true
 
   # Indirect associations
 
   has_one    :user,
-             :through => :closet,
-             :source => :user
+             through: :closet,
+             source: :user
 
   # Validations
 
-  validates :item_name, :presence => { :message => "Please label item" }
+  validates :item_name, presence: { message: "Please label item" }
 
-  validates :item_type_id, :presence => { :message => "Please select an item type" }
+  validates :item_type_id,
+            presence: { message: "Please select an item type" }
 
-  validates :photos, :presence => true
+  validates :photos, presence: true
 
   # Scopes
 
   def to_s
     closet.to_s
   end
-
 end

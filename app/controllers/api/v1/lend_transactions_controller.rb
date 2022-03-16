@@ -13,7 +13,7 @@ class Api::V1::LendTransactionsController < Api::V1::GraphitiController
     lend_transaction = LendTransactionResource.build(params)
 
     if lend_transaction.save
-      render jsonapi: lend_transaction, status: 201
+      render jsonapi: lend_transaction, status: :created
     else
       render jsonapi_errors: lend_transaction
     end
@@ -33,7 +33,7 @@ class Api::V1::LendTransactionsController < Api::V1::GraphitiController
     lend_transaction = LendTransactionResource.find(params)
 
     if lend_transaction.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: lend_transaction
     end

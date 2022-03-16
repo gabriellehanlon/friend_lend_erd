@@ -4,7 +4,7 @@ class SavedItem < ApplicationRecord
   belongs_to :item
 
   belongs_to :user,
-             :counter_cache => true
+             counter_cache: true
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class SavedItem < ApplicationRecord
   def to_s
     item.to_s
   end
-
 end

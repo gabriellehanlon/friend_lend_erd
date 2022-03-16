@@ -13,7 +13,7 @@ class Api::V1::ItemTypesController < Api::V1::GraphitiController
     item_type = ItemTypeResource.build(params)
 
     if item_type.save
-      render jsonapi: item_type, status: 201
+      render jsonapi: item_type, status: :created
     else
       render jsonapi_errors: item_type
     end
@@ -33,7 +33,7 @@ class Api::V1::ItemTypesController < Api::V1::GraphitiController
     item_type = ItemTypeResource.find(params)
 
     if item_type.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: item_type
     end

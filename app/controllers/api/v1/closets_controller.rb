@@ -13,7 +13,7 @@ class Api::V1::ClosetsController < Api::V1::GraphitiController
     closet = ClosetResource.build(params)
 
     if closet.save
-      render jsonapi: closet, status: 201
+      render jsonapi: closet, status: :created
     else
       render jsonapi_errors: closet
     end
@@ -33,7 +33,7 @@ class Api::V1::ClosetsController < Api::V1::GraphitiController
     closet = ClosetResource.find(params)
 
     if closet.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: closet
     end

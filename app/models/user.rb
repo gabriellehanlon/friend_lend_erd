@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class User < ApplicationRecord
   before_validation :geocode_address
 
   def geocode_address
-    if self.address.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.address)}"
+    if address.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(address)}"
 
       raw_data = open(url).read
 
@@ -19,43 +19,43 @@ class User < ApplicationRecord
       end
     end
   end
-  
+
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :saved_items,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :items_borrowed,
-             :class_name => "LendTransaction",
-             :foreign_key => "user_lending_id"
+             class_name: "LendTransaction",
+             foreign_key: "user_lending_id"
 
   has_many   :lend_transactions,
-             :foreign_key => "lender_id"
+             foreign_key: "lender_id"
 
   has_many   :preferences,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :closets,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :styles,
-             :through => :preferences,
-             :source => :style
+             through: :preferences,
+             source: :style
 
   has_many   :items,
-             :through => :closets,
-             :source => :items
+             through: :closets,
+             source: :items
 
   has_many   :letter_sizes,
-             :through => :preferences,
-             :source => :letter_size
+             through: :preferences,
+             source: :letter_size
 
   has_many   :number_sizes,
-             :through => :preferences,
-             :source => :number_size
+             through: :preferences,
+             source: :number_size
 
   # Validations
 

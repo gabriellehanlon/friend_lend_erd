@@ -2,10 +2,10 @@ class Closet < ApplicationRecord
   # Direct associations
 
   has_many   :items,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :user,
-             :counter_cache => true
+             counter_cache: true
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class Closet < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

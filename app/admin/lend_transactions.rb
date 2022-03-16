@@ -1,6 +1,6 @@
 ActiveAdmin.register LendTransaction do
-
- permit_params :lender_id, :user_lending_id, :pickup_date_time, :rental_period, :item_id, :chat_history
+  permit_params :lender_id, :user_lending_id, :pickup_date_time, :rental_period,
+                :item_id, :chat_history
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register LendTransaction do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

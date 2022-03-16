@@ -20,5 +20,4 @@ class LendTransactionResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

@@ -13,7 +13,7 @@ class Api::V1::NumberSizesController < Api::V1::GraphitiController
     number_size = NumberSizeResource.build(params)
 
     if number_size.save
-      render jsonapi: number_size, status: 201
+      render jsonapi: number_size, status: :created
     else
       render jsonapi_errors: number_size
     end
@@ -33,7 +33,7 @@ class Api::V1::NumberSizesController < Api::V1::GraphitiController
     number_size = NumberSizeResource.find(params)
 
     if number_size.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: number_size
     end

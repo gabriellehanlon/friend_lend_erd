@@ -33,7 +33,7 @@ class ItemResource < ApplicationResource
 
   filter :user_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:user).where(:closets => {:user_id => value})
+      scope.eager_load(:user).where(closets: { user_id: value })
     end
   end
 end
