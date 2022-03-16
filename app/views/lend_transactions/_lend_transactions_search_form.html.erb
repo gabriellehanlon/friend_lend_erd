@@ -1,0 +1,145 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "lend_transactions_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :chat_history_cont, "Chat history contains" %>
+    <%= f.text_field :chat_history_cont, :class => "form-control", :placeholder => "Chat history contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :rental_period, "Rental period" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='rental_periodgteqPicker' data-target-input="nearest">
+          <%= f.text_field :rental_period_gteq, :class => "form-control datetimepicker-input", :placeholder => "Rental period greater than or equal to", :data => {:target => '#rental_periodgteqPicker'} %>
+          <div class="input-group-append" data-target='#rental_periodgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+          </div>
+          <script type="text/javascript">
+            $(function () {
+                $('#rental_periodgteqPicker').datetimepicker({
+                  format: 'LT'
+                });
+            });
+          </script>
+        </div>
+      </div>
+      <div class='col-md-6'>
+        <div class='input-group date' id='rental_periodlteqPicker' data-target-input="nearest">
+          <%= f.text_field :rental_period_lteq, :class => "form-control datetimepicker-input", :placeholder => "Rental period less than or equal to", :data => {:target => '#rental_periodlteqPicker'} %>
+          <div class="input-group-append" data-target='#rental_periodlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+          </div>
+          <script type="text/javascript">
+            $(function () {
+                $('#rental_periodlteqPicker').datetimepicker({
+                  format: 'LT'
+                });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :pickup_date_time, "Pickup date time" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='pickup_date_timegteqPicker' data-target-input="nearest">
+          <%= f.text_field :pickup_date_time_gteq, :class => "form-control datetimepicker-input", :placeholder => "Pickup date time greater than or equal to", :data => {:target => '#pickup_date_timegteqPicker'} %>
+          <div class="input-group-append" data-target='#pickup_date_timegteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='pickup_date_timelteqPicker' data-target-input="nearest">
+          <%= f.text_field :pickup_date_time_lteq, :class => "form-control datetimepicker-input", :placeholder => "Pickup date time less than or equal to", :data => {:target => '#pickup_date_timelteqPicker'} %>
+          <div class="input-group-append" data-target='#pickup_date_timelteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#pickup_date_timegteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#pickup_date_timelteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#pickup_date_timegteqPicker').on("dp.change", function (e) {
+              $('#pickup_date_timelteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#pickup_date_timelteqPicker').on("dp.change", function (e) {
+              $('#pickup_date_timegteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :lender_email_cont, "Lender email contains" %>
+    <%= f.text_field :lender_email_cont, :class => "form-control", :placeholder => "Lender email contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :user_lending_email_cont, "User lending email contains" %>
+    <%= f.text_field :user_lending_email_cont, :class => "form-control", :placeholder => "User lending email contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/lend_transactions" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#lend_transactions_filters">
+  Show filters
+</a>

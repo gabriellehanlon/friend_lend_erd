@@ -5,7 +5,8 @@ class ClosetsController < ApplicationController
 
   # GET /closets
   def index
-    @closets = Closet.page(params[:page]).per(10)
+    @q = Closet.ransack(params[:q])
+    @closets = @q.result(:distinct => true).includes(:user, :items).page(params[:page]).per(10)
   end
 
   # GET /closets/1

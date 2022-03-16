@@ -3,7 +3,8 @@ class LetterSizesController < ApplicationController
 
   # GET /letter_sizes
   def index
-    @letter_sizes = LetterSize.page(params[:page]).per(10)
+    @q = LetterSize.ransack(params[:q])
+    @letter_sizes = @q.result(:distinct => true).includes(:preferences, :items, :users).page(params[:page]).per(10)
   end
 
   # GET /letter_sizes/1

@@ -1,0 +1,96 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "items_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :item_description_cont, "Item description contains" %>
+    <%= f.text_field :item_description_cont, :class => "form-control", :placeholder => "Item description contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :item_name_cont, "Item name contains" %>
+    <%= f.text_field :item_name_cont, :class => "form-control", :placeholder => "Item name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :style_style_name_cont, "Style style_name contains" %>
+    <%= f.text_field :style_style_name_cont, :class => "form-control", :placeholder => "Style style_name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :item_type_name_cont, "Item type name contains" %>
+    <%= f.text_field :item_type_name_cont, :class => "form-control", :placeholder => "Item type name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :letter_size_size_cont, "Letter size size contains" %>
+    <%= f.text_field :letter_size_size_cont, :class => "form-control", :placeholder => "Letter size size contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :size, "NumberSize Size" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :number_size_size_gteq, :class => "form-control", :placeholder => "NumberSize Size greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :number_size_size_lteq, :class => "form-control", :placeholder => "NumberSize Size less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :user_email_cont, "User email contains" %>
+    <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/items" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#items_filters">
+  Show filters
+</a>

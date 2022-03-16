@@ -3,7 +3,8 @@ class StylesController < ApplicationController
 
   # GET /styles
   def index
-    @styles = Style.page(params[:page]).per(10)
+    @q = Style.ransack(params[:q])
+    @styles = @q.result(:distinct => true).includes(:items, :preferences, :users).page(params[:page]).per(10)
   end
 
   # GET /styles/1

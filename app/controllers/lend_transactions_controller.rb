@@ -7,7 +7,8 @@ class LendTransactionsController < ApplicationController
 
   # GET /lend_transactions
   def index
-    @lend_transactions = current_user.items_borrowed.page(params[:page]).per(10)
+    @q = current_user.items_borrowed.ransack(params[:q])
+    @lend_transactions = @q.result(:distinct => true).includes(:lender, :user_lending, :item).page(params[:page]).per(10)
   end
 
   # GET /lend_transactions/1

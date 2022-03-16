@@ -3,7 +3,8 @@ class NumberSizesController < ApplicationController
 
   # GET /number_sizes
   def index
-    @number_sizes = NumberSize.page(params[:page]).per(10)
+    @q = NumberSize.ransack(params[:q])
+    @number_sizes = @q.result(:distinct => true).includes(:preferences, :items, :users).page(params[:page]).per(10)
   end
 
   # GET /number_sizes/1

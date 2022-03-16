@@ -3,7 +3,8 @@ class ItemTypesController < ApplicationController
 
   # GET /item_types
   def index
-    @item_types = ItemType.page(params[:page]).per(10)
+    @q = ItemType.ransack(params[:q])
+    @item_types = @q.result(:distinct => true).includes(:items).page(params[:page]).per(10)
   end
 
   # GET /item_types/1
