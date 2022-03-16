@@ -13,6 +13,8 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :number_size
+
   belongs_to :letter_size
 
   belongs_to :item_type
