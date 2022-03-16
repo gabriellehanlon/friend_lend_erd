@@ -13,6 +13,8 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :lend_transactions
+
   belongs_to :closet
 
   belongs_to :style
