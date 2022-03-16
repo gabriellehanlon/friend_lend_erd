@@ -13,6 +13,8 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :closet
+
   belongs_to :style
 
   # Indirect associations

@@ -6,6 +6,8 @@ class ClosetResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :items
+
   belongs_to :user
 
   # Indirect associations
