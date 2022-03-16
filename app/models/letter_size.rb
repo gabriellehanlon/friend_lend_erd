@@ -5,6 +5,8 @@ class LetterSize < ApplicationRecord
 
   # Validations
 
+  validates :size, :uniqueness => true
+
   validates :size, :presence => true
 
   # Scopes
