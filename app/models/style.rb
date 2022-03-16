@@ -5,6 +5,8 @@ class Style < ApplicationRecord
 
   # Validations
 
+  validates :style_name, :presence => { :message => "Enter new style name" }
+
   # Scopes
 
   def to_s

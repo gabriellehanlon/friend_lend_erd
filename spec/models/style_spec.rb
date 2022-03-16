@@ -12,5 +12,7 @@ RSpec.describe Style, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:style_name).with_message('Enter new style name') }
+
     end
 end
