@@ -42,8 +42,14 @@ class LendTransactionsController < ApplicationController
   # DELETE /lend_transactions/1
   def destroy
     @lend_transaction.destroy
-    redirect_to lend_transactions_url, notice: 'Lend transaction was successfully destroyed.'
+    message = "LendTransaction was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to lend_transactions_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

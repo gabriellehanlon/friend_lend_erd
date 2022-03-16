@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Items Borrowed
+
+    <a data-toggle="collapse" href="#user_items_borrowed_new_form">
+      Add lend transaction
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.items_borrowed.each do |lend_transaction| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to lend_transaction, lend_transaction %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_items_borrowed_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

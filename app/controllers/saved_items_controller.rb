@@ -42,8 +42,14 @@ class SavedItemsController < ApplicationController
   # DELETE /saved_items/1
   def destroy
     @saved_item.destroy
-    redirect_to saved_items_url, notice: 'Saved item was successfully destroyed.'
+    message = "SavedItem was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to saved_items_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
